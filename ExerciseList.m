@@ -130,6 +130,19 @@
 %   steps within the function. Test the parallel algorithm using the
 %   "MarsNoisy.tif" image as the input.
 
+%% Datastores.
+% * Create and calibrate a datastore corresponding to the hurricane data.
+% * Use the preview command to ensure the datastore is calibrated
+%   correctly.
+% * Using parallel block processing, compute the following statistics for
+%   the windspeed data, grouped by month: min, max, mean and standard
+%   deviation. Hint: use ACCUMARRAY to aggregate the data in blocks. To
+%   compute the standard deviation, first compute the sum of the squared
+%   windspeeds in each month.
+% * Create a chart which shows the min, mean and max windspeeds by month.
+%   Also include lines showing the mean plus/minus one standard deviation
+%   of the monthly windspeeds.
+
 %% Advanced MATLAB graphics.
 % Exercise - House Prices to Median Earnings
 % Solution - PricesToWages, plotPrices_sol, houseUI_complete
