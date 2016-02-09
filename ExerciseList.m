@@ -39,6 +39,46 @@
 %   Ensure that the results are comparable to those obtained running the 
 %   original code.
 
+%% Function handles.
+%
+% * Create a function handle to represent the function g(x) = x.*sin(x).
+% * Plot this function over the domain [-4*pi, 4*pi] using ezplot.
+% * Find a root of this function near x0 = pi/2 using fzero. Add this point
+%   to the plot.
+% * What is the area under g between 0 and pi? Hint: use integral.
+% * Create a function to represent the function f(x, y) = x.*y.*exp(-x.^2-y.^2).
+% * Visualise this function as a surface using ezsurf and the default
+%   domain.
+
+%% Tables.
+% Exercise - Gas Prices 
+% Solution - Ex01_GasPrices.m 
+%
+% * Create a new script, and use the readtable function to import the data 
+%   from gasprices.csv into a table in your Workspace. Hint: You will need 
+%   to specify the Delimiter and Headerlines options – see the 
+%   documentation for the readtable function.
+%
+% * Extract the data for Japan from the table into a separate numeric 
+%   variable, using the dot syntax (.). Compute the mean and standard 
+%   deviation of the Japanese prices.
+%
+% * Extract the data for Europe into a numeric array, and compute the mean
+%   European price for each year. Hint: check the documentation for the 
+%   mean function.
+%
+% * Compute the European return series from the prices using the following 
+%   formula:
+%
+%       R(t) = log( P(t+1)/P(t) )
+%
+%   Here, P(t) represents a single price series. There are four price 
+%   series in the European data.
+%
+% * Compute the correlation coefficients of the four European return 
+%   series. Hint: See the documentation for the corrcoef function. Display 
+%   the resulting correlation matrix using the imagesc function.
+
 %% Population dynamics.
 %
 % The number of individuals in a population at a given time step can be 
@@ -137,35 +177,6 @@
 %   the plot.
 % * Make normal probability plots of the residuals from both fits. Are the
 %   residuals normally distributed?
-
-%% The MATLAB Language and Desktop Environment.
-% Exercise - Gas Prices 
-% Solution - Ex01_GasPrices.m 
-%
-% * Create a new script, and use the readtable function to import the data 
-%   from gasprices.csv into a table in your Workspace. Hint: You will need 
-%   to specify the Delimiter and Headerlines options – see the 
-%   documentation for the readtable function.
-%
-% * Extract the data for Japan from the table into a separate numeric 
-%   variable, using the dot syntax (.). Compute the mean and standard 
-%   deviation of the Japanese prices.
-%
-% * Extract the data for Europe into a numeric array, and compute the mean
-%   European price for each year. Hint: check the documentation for the 
-%   mean function.
-%
-% * Compute the European return series from the prices using the following 
-%   formula:
-%
-%       R(t) = log( P(t+1)/P(t) )
-%
-%   Here, P(t) represents a single price series. There are four price 
-%   series in the European data.
-%
-% * Compute the correlation coefficients of the four European return 
-%   series. Hint: See the documentation for the corrcoef function. Display 
-%   the resulting correlation matrix using the imagesc function.
 
 %% The MATLAB Language and Desktop Environment.
 % Exercise - Australian Marriages 
