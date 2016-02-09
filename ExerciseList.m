@@ -130,6 +130,36 @@
 %   steps within the function. Test the parallel algorithm using the
 %   "MarsNoisy.tif" image as the input.
 
+%% Advanced MATLAB graphics.
+% Exercise - House Prices to Median Earnings
+% Solution - PricesToWages, plotPrices_sol, houseUI_complete
+%
+% * Create a new script, and load the data from House.mat into the 
+%   Workspace.
+%
+% * Open and view the data table in the Variable Editor. Extract the region
+%   names from the table as a cell array of strings, by accessing the 
+%   Properties metadata of the table. Hint: At the command line, enter 
+%   >> pricesToWages.Properties
+%
+% * Use the strcmp function and the cell array from the previous step to 
+%   identify the row of the table containing the data for York. 
+%   Extract the data from this row, and plot this data as a function of 
+%   year (note that the years range from 1997 to 2012).
+%
+% * Write a function plotPrices with the following specifications:
+%
+%   plotPrices accepts a row number as its only input argument;
+%   plotPrices plots the price information from the corresponding row of 
+%   the table as a function of year.
+%
+%   Note that since functions have their own private workspace, you will 
+%   need to load the required data inside the function.
+%
+% * Open the houseUI function file and modify the popup menu 
+%   callback so that the plot is updated when the user selects a region 
+%   of interest.
+
 %% Exploratory data analysis.
 %
 % * Load quakes14.mat. This file contains a table of earthquake data for 14
@@ -237,36 +267,6 @@
 %   surface temperature measurements (i.e. the different columns of the 
 %   sst variable), and visualise the results in a 4x6 subplot array. 
 %   Hint: use a for-loop and the subplot function.
-
-%% Algorithm Design in MATLAB.
-% Exercise - House Prices to Median Earnings
-% Solution - Ex04_PricesToWages, plotPrices_sol, houseUI_complete
-%
-% * Create a new script, and load the data from Ex04_House.mat into the 
-%   Workspace.
-%
-% * Open and view the data table in the Variable Editor. Extract the region
-%   names from the table as a cell array of strings, by accessing the 
-%   Properties metadata of the table. Hint: At the command line, enter 
-%   >> pricesToWages.Properties
-%
-% * Use the strcmp function and the cell array from the previous step to 
-%   identify the row of the table containing the data for Manchester. 
-%   Extract the data from this row, and plot this data as a function of 
-%   year (note that the years range from 1997 to 2012).
-%
-% * Write a function plotPrices with the following specifications:
-%
-%   plotPrices accepts a row number as its only input argument;
-%   plotPrices plots the price information from the corresponding row of 
-%   the table as a function of year.
-%
-%   Note that since functions have their own private workspace, you will 
-%   need to load the required data inside the function.
-%
-% * Bonus: open the houseUI function file and modify the popup menu 
-%   callback so that the plot is updated when the user selects a region 
-%   of interest.
 
 %% Test and Verification of MATLAB Code.
 % Exercise - String Subset Replacement 

@@ -1,6 +1,6 @@
 function plotPrices_sol(k)
     
-    S = load('Ex04_House.mat');
+    S = load('House.mat');
     Yrs = 1997:2012;
     figure
     plot(Yrs, S.pricesToWages{k, :}, 'LineWidth', 2, 'Marker', '*')

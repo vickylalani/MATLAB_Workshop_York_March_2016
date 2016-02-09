@@ -1,7 +1,7 @@
 function houseUI()
     
     % Load data.
-    handles = load('Ex04_House.mat');
+    handles = load('House.mat');
     
     % Create background figure.
     screenPos = get(0, 'ScreenSize');
@@ -31,7 +31,7 @@ function houseUI()
         % selection is made from the pop-up menu.
         
         % Required row number.
-        k = get(handles.popuph, 'Value');
+        k = handles.popuph.Value;
         
         % TODO: Update the plot with the correct data.
         
