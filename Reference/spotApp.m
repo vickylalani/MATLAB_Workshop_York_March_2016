@@ -80,7 +80,7 @@ hold(ax(2), 'on')
 pSpot3D = plot3(maturities, yCurve, spotCurve, 'k', 'LineWidth', 2);
 
 %% Callback function.
-    function onDateChanged(~, ~)
+    function onDateChanged(varargin)
         % Read current slider value (round to nearest day).
         sliderVal = round((numel(numDates)-1)*dateSlider.Value)+1;
         
