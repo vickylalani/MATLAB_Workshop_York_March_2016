@@ -19,8 +19,9 @@ J = 0.005;
 %% The aim is to analyse how the current of the motor changes as the value of the resistance changes.
 % Let us look at resistance values from 2-10 Ohm. "linspace" returns a
 % vector of evenly space points between 2 Ohm and 10 Ohm. 
-
-
+R_values = linspace(2,10,10);
+N = length(R_values);
+load
 % Declare N = length of values of R and load the system
 
 
@@ -29,6 +30,12 @@ J = 0.005;
 % "sim" command to simulate the DC motor. The function takes the model name
 % and the variable "R" as inputs. The output is stored in a output
 % Dataset which is used to plot the results.
+
+parfor k = 1:N
+    R = R_values(k);
+    simDCMotor('mdlName','R');
+end
+
 
    
 %% Plotting the simulation results. simOut is a dataset with output elements 

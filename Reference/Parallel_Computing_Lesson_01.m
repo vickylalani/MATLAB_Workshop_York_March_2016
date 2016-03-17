@@ -29,6 +29,18 @@ fprintf('Parallel execution time (s): %.4f\n', tPar);
 %% Compute speedup.
 speedup = tSeq/tPar;
 fprintf('Speedup: %.4f\n', speedup);
+% Theoretical result (Amdahl's law):
+% speedup is bounded above by 1/f_seq
+% (f_seq is the fraction of code that needs
+% to run sequentially).
+% e.g., if f_seq = 20% (80% parallelisable)
+% max speedup is 5.
+
+
+
+
+
+
 
 
 

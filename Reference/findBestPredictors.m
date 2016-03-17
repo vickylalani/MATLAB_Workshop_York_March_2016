@@ -8,14 +8,24 @@ function predictorRankings = findBestPredictors()
     % predictive accuracy (%).
     
     % Step 1: Load and preprocess the data.
-    X = load('Med_Data.mat');
-    paredData = preprocess(X.Meddata);
+    if exist ('MedData.mat', 'file') ~=2
+        error('findBestPredictors:MissingDataFile',...
+                'Unable to locate MedData file');
+    end
+    X = load('MedData.mat');
+    
+    if ~isfield(X,'MedData')
+        error('findBestPredictors:MissingVariable',...
+                'Unable to find variable MedData in Data file');
+    end
+    
+    paredData = preprocess(X.MedData);
     
     % Step 2: Partition the data into training and test sets.
     [trainingIdx, testIdx, yTrain, yTest, Xtab] = partition(paredData);
     
     % Step 3: Assemble a list of distinct pairs of variable names.
-    [varPairs, tabNames] = getpairs(Xtab);
+    [varPairs, tabNames] = getPairs(Xtab);
     
     % Step 4: Measure the performance of each pair of predictor variables,
     % and store the results in a table.
@@ -86,6 +96,7 @@ function [varPairs, tabNames] = getPairs(Xtab)
     % GETPAIRS: Assembles a nx2 cell array of pairs of variable names from
     % the input table Xtab. Also returns tabNames, a cell array of variable
     % names from the input table Xtab.
+    varPairs = cell(nchoosek(size(Xtab,2),2),2);
     
     tabNames = Xtab.Properties.VariableNames;
     
@@ -94,8 +105,8 @@ function [varPairs, tabNames] = getPairs(Xtab)
         for k2 = 1:k1-1
             varPairs{k, 1} = tabNames{k1};
             varPairs{k, 2} = tabNames{k2};
-            k = k + 1
-    end
+            k = k + 1;
+        end
     end
     
 end % getPairs
@@ -125,7 +136,7 @@ function [predictorRankings, bestPredictors, predictedBMIs] = ...
         for k2 = 1:(k1-1)
             Xiter = X(trainingIdx, [k1, k2]);
             F = TreeBagger(5, Xiter, yTrain);
-            predictedBMIs = predict(F, X(testIdx, [k1, k2]);
+            predictedBMIs = predict(F, X(testIdx, [k1, k2]));
             matches = strcmp(predictedBMIs, yTest);
             predAcc = 100*nnz(matches)/numel(matches);
             fprintf('Accuracy for predictors %s and %s (%%): %.2f\n', ...
@@ -198,6 +209,7 @@ function visualiseResults(paredData, bestPredictors, ...
     actualPlotOpts = {'Marker', 'o', 'MarkerSize', 5, 'Color', 'b'};
     predictedPlotOpts = {'Marker', 'o', 'MarkerSize', 5, 'Color', 'g'};
     
+    uitableData = NaN(numel(yTest),2);
     
     for k = 1:numel(yTest)
         
@@ -212,10 +224,11 @@ function visualiseResults(paredData, bestPredictors, ...
         binCountsPredicted(predictedClass) = binCountsPredicted(predictedClass)+1;
         predictedPlotOpts{end} = 'g';
         
-        currentData = get(uthResults, 'Data');
-        currentData(k, :) = [predictedClass, actualClass];
-        set(uthResults, 'Data', currentData)
+        
+        uitableData(k, :) = [predictedClass, actualClass];
+        
         
     end % for
+    set(uthResults, 'Data', uitableData);
     
 end % visualiseResults

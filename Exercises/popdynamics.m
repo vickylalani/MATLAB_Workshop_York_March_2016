@@ -29,7 +29,7 @@ numrates = floor((R(2) - R(1))/rstep) + 1;
 % Preallocate memory for the results
 cycles = zeros(1, numrates);
 
-for index = 1:numrates
+parfor index = 1:numrates
 
     % Calculate the rate for the current iteration
     rate = (index - 1) * rstep + R(1);

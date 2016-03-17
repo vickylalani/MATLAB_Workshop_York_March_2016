@@ -29,11 +29,9 @@ load_system(mdlName);
 % name of the model and the value of the parameter R as the input. 
 % The result is stored in a output
 % Dataset which is used to plot the results.
-
 parfor k = 1:N
     R = R_values(k);
-	simOut(k) = simDCMotor(mdlName,R);
-    
+	simOut(k) = simDCMotor(mdlName,R);    
 end
 %% Plotting the simulation results. simOut is a dataset with output elements 
 % that can be accessed using the method "get".
