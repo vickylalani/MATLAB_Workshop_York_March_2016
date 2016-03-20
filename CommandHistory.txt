@@ -1,0 +1,277 @@
+% Course files are available from USB or from GitHub:
+% https://github.com/kdeeleymath/MATLAB_Workshop_York_March_2016
+% Once you've downloaded the files, open MATLAB, move to the directory
+% and run the file setWorkshopPath
+findBestPredictors
+edit findBestPredictors
+checkcode(findBestPredictors)
+checkcode('findBestPredictors')
+findBestPredictors
+dbstop if error
+findBestPredictors
+help exist
+profile on;
+findBestPredictors
+edit
+profile off;
+profile viewer
+findBestPredictors
+clc
+edit ExerciseList.m
+edit analyzerEx.m
+clc
+A = NaN(3)
+size(A)
+numel(A)
+length(A)
+A = rand(4, 5)
+length(A)
+max(size(A))
+clc
+A = ones(5)
+B = sum(A)
+B = cumsum(A)
+clc
+x = 1:5
+y = 5:-1:1
+x .* y
+clc
+Z = [1+i, 5-6i]
+Z.'
+Z'
+clc
+edit
+clc
+% You need to have at least R2014b
+% to use version control.
+clc
+edit
+clc
+sin(pi)
+f = @sin
+f(pi)
+clc
+fzero(f, 3)
+edit plotParabola.m
+myParabola(2)
+clear a b c
+myParabola(2)
+info = functions(myParabola)
+info.workspace
+info.workspace{:}
+a = 3
+info.workspace{:}
+clc
+g(2, 3)
+f(3)
+edit plotIntegral.m
+plotIntegral
+changingInterface
+clc
+edit ExerciseList.m
+Untitled5
+areaG
+plotIntegral
+Untitled6
+patients(3, 3)
+patients('Williams', 'Height')
+patients('Miller', :)
+clc
+patients([4 6], :)
+patients({'Jones', 'Davis'}, {'Height', 'Weight'})
+clc
+patients.Height
+patients = sortrows(patients,'Height','descend');
+patients = sortrows(patients,'Height','ascend');
+patients('Reed', :)
+Untitled6
+clc
+patients.Properties.VariableNames
+A.Properties.VariableNames{4} = 'Mass';
+A = A(:,[1:4 6 5]);
+size(A)
+width(A)
+height(A)
+before = A.Sex;
+whos before
+after = categorical(before);
+whos after
+A == 'Male'
+A.Sex == 'Male'
+A(A.Sex == 'Male', :)
+clc
+1 && 0
+[true false] & [false false]
+[true false] && [false false]
+T = A(:, {'Age', 'Gender'});
+dbquit
+T = A(:, {'Age', 'Sex'});
+edit tablesScript.m
+tablesScript
+which splitapply
+doc splitapply
+joinTables
+clc
+%-- 17/03/2016 13:35 --%
+TableExercise
+grid on
+shg
+TableExercise
+edit Parallel_Computing_Lesson_01.m
+clc
+parpool % Start a parallel pool
+clc
+ver('parallel')
+clc
+ver
+clc
+gcp
+delete(gcp)
+clc
+gcf
+clc
+gcp
+clc
+% Key functions: parpool starts a pool.
+% gcp - get current pool.
+% gcp('nocreate') - query pool status
+parfor k = 1:10
+disp(k)
+end
+clc
+% Important: to convert for to parfor, iterations
+% must be independent of each other.
+simulink
+doc
+pdetool
+simulink
+t = 0:0.1:10;
+plot(t,sin(t));
+shg
+motorParamSweep
+U = heateq(200)
+clc
+% parpool() % Local pool
+% parpool('York_Cluster') % Any external resources
+clc
+methods('codistributed') % All supported functions
+figure
+imagesc(U_spmd, [10, 80]) % Temp. scale between 10C and 80C
+title('Final heat distribution')
+clc
+gpuDevice
+clc
+methods('gpuArray')
+ax = axes
+ezplot(@sin)
+shg
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
+shg
+axis equal
+shg
+clc
+ax
+get(ax)
+x = ax.XAxis
+ax.XAxis.TickLabelFormat = '£%.2f';
+load('C:\Users\kdeeley\Desktop\class_York\Data\US_Births_1978.mat')
+load('C:\Users\kdeeley\Desktop\class_York\Data\UKSpotData.mat')
+spotApp
+load('C:\Users\kdeeley\Desktop\class_York\Data\US_Births_1978.mat')
+load('C:\Users\kdeeley\Desktop\class_York\Data\UKSpotData.mat')
+plot(spot(1, :))
+plot(maturities,spot(1, :))
+shg
+surf(spot)
+shg
+clc
+houseUI_complete
+clc
+edit ExerciseList.m
+clc
+intmax('uint8')
+intmin('uint8')
+I = imread('peppers.png');
+whos I
+figure; imshow(I)
+clc
+preview(ds)
+clc
+preview(ds)
+clc
+dataStoreSolution
+clc
+ds.TextscanFormats
+dataStoreSolution
+clc
+T.Month = month(T.Timestamp); % Add month column
+f = @(x) [mean(x), std(x), min(x), max(x), median(x)];
+monthlyStats = varfun(f, T, ...
+'InputVariables', {'Windspeed', 'Pressure'}, ...
+'GroupingVariables', 'Month');
+clc
+clear; close all; clc
+plot(randn(100, 1))
+histogram(randn(1000, 1))
+clc
+f
+clc
+inspect(f) % Opens the property inspector
+advancedVisualisation
+clc
+shg % Show graphics - bring figure to the front
+f.Position
+clc
+%-- 18/03/2016 12:04 --%
+advancedVisualisation
+clc
+advancedVisualisation
+clc
+f2 = figure; ax1 = subplot(1, 2, 1, 'Parent', f2);
+ax2 = subplot(1, 2, 2, 'Parent', f2)
+clc
+advancedVisualisation
+clc
+legend('Data', 'Location', 'EastOutside')
+advancedVisualisation
+clc
+inspect(p2)
+clc
+advancedVisualisation
+f.PaperPositionMode = 'auto';
+print(f, 'MyWalk.png', '-dpng', '-r600')
+% "Export f as a .png, using 600 d.p.i resolution."
+ax.Position
+ax.Position = [0.05, 0.05, 0.90, 0.90];
+edit
+clc
+s = MedData.Sex
+clc
+ylim
+xlim
+EDA_Script
+clc
+std(H_men)
+EDA_Script
+close all
+EDA_Script
+clc
+maleFit
+clc
+rand(4, 5)
+randn(3, 6)
+clc
+poly2str(coeffs, 'Age')
+statsModelling
+clc
+mdl.Coefficients
+mdl.Coefficients.Estimate
+statsModelling
+mdl.Coefficients.Estimate
+mdl.Coefficients
+clc
+mdl.Coefficients
+clc
+statsModelling
+clc
